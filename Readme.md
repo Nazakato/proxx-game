@@ -8,14 +8,14 @@ Playable game and rules can be found here: [Proxx](https://proxx.app/).
 ## Powershell
 The next command builds the image and runs it at once, cleaing the resources after the app execution finishes:
 ```
-docker run -it --rm $(docker build -q -f Dockerfile .) 3
+docker run -it --rm $(docker build -q -f Dockerfile .)
 ```
 ## Shell-agnostic way
 Run the commands line by line.
 ### Running the application:
 ```
 docker build -t proxx-game-image -f Dockerfile .
-docker run -it --rm proxx-game-image 3
+docker run -it --rm proxx-game-image
 ```
 ### Cleaning up resources:
 ```

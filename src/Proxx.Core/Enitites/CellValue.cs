@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the value of the cell.
     /// </summary>
-    internal class CellValue
+    public class CellValue
     {
         private readonly char _value;
 
@@ -21,12 +21,19 @@
         // - Restrict creating "custom" values.
         // - Reuse the objects in memory, as we ca fill a very large board. The more value objects will be reused, the better.
         private static readonly CellValue _hole = new('H');
-        private static readonly CellValue _empty = new(' ');
-        private static readonly CellValue[] _numbers = Enumerable.Range(1, 8)
-            .Select(i => new CellValue((char)i)).ToArray();
+        private static readonly CellValue _empty = new('-');
+        private static readonly Dictionary<int, CellValue> _numbers = new();
 
-        internal static CellValue Hole => _hole;
-        internal static CellValue Empty => _empty;
-        internal static CellValue GetNumber(int minesAround) => _numbers[minesAround - 1];
+        public static CellValue Hole => _hole;
+        public static CellValue Empty => _empty;
+        public static CellValue GetNumber(int minesAround)
+        {
+            if (_numbers.TryGetValue(minesAround, out var cellValue))
+                return cellValue;
+
+            cellValue = new CellValue((char)(minesAround + 48));
+            _numbers[minesAround] = cellValue;
+            return cellValue;
+        }
     }
 }

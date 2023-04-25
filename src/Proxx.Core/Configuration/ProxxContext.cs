@@ -1,22 +1,26 @@
-﻿using Proxx.Core.Enitites;
+﻿using Proxx.Core.BoardGeneration;
+using Proxx.Core.Enitites;
 
 namespace Proxx.Core.Configuration
 {
     /// <summary>
     /// This classs is an entry point for the game runner logic.
     /// </summary>
-    public class ProxxContext
+    public class ProxxContext<TBoard, TBoardConfiguration>
+        where TBoard : BaseBoard
+        where TBoardConfiguration : BaseBoardConfiguration
     {
-        private readonly IBoardGenerationStrategy _boardGenerationStrategy;
-        private readonly BoardConfiguration _boardConfiguration;
-        private readonly Board _board;
+        private readonly IBoardGenerationStrategy<TBoard, TBoardConfiguration> _boardGenerationStrategy;
+        public TBoardConfiguration BoardConfiguration { get; init; }
+        public TBoard Board { get; init; }
 
-        public ProxxContext(BoardConfiguration boardconfiguration, IBoardGenerationStrategy boardGenerationStrategy)
+        public ProxxContext(TBoardConfiguration boardconfiguration,
+            IBoardGenerationStrategy<TBoard, TBoardConfiguration> boardGenerationStrategy)
         {
-            _boardConfiguration = boardconfiguration ?? throw new ArgumentNullException(nameof(boardconfiguration));
+            BoardConfiguration = boardconfiguration ?? throw new ArgumentNullException(nameof(boardconfiguration));
             _boardGenerationStrategy = boardGenerationStrategy ?? throw new ArgumentNullException(nameof(boardGenerationStrategy));
 
-            _board = _boardGenerationStrategy.Generate(boardconfiguration);
+            Board = _boardGenerationStrategy.Generate(boardconfiguration);
         }
     }
 }

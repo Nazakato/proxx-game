@@ -1,7 +1,6 @@
-﻿var counter = 0;
-var max = args.Length is not 0 ? Convert.ToInt32(args[0]) : -1;
-while (max is -1 || counter < max)
-{
-    Console.WriteLine($"Counter: {++counter}");
-    await Task.Delay(TimeSpan.FromMilliseconds(1000));
-}
+﻿using Proxx.Core.BoardGeneration;
+using Proxx.Core.Square;
+
+var proxxContext = new ProxxContext(10, 10, 10, new UniformHolesDistributionStrategy(1000));
+
+Console.WriteLine(proxxContext.Board);

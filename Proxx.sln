@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proxx.Console", "src\Proxx.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proxx.Core", "src\Proxx.Core\Proxx.Core.csproj", "{51A779C2-1B0A-4902-8E28-FE829A32D492}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxx.Core.Square", "src\Proxx.Core.Square\Proxx.Core.Square.csproj", "{3F668B54-3BC8-464E-9BCD-E86C533FBF75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{51A779C2-1B0A-4902-8E28-FE829A32D492}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51A779C2-1B0A-4902-8E28-FE829A32D492}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51A779C2-1B0A-4902-8E28-FE829A32D492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F668B54-3BC8-464E-9BCD-E86C533FBF75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F668B54-3BC8-464E-9BCD-E86C533FBF75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F668B54-3BC8-464E-9BCD-E86C533FBF75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F668B54-3BC8-464E-9BCD-E86C533FBF75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,5 +36,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BD333432-081B-43CB-A2D5-3A09A6662ED5} = {8E91FB32-DEB0-4595-A9B8-D46F6698EDF9}
 		{51A779C2-1B0A-4902-8E28-FE829A32D492} = {8E91FB32-DEB0-4595-A9B8-D46F6698EDF9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88199A41-9A88-4B9A-99ED-98680A9DF4F8}
 	EndGlobalSection
 EndGlobal

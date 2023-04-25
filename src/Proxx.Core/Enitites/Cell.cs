@@ -1,21 +1,31 @@
 ﻿namespace Proxx.Core.Enitites
 {
-    internal class Cell
+    public class Cell
     {
-        internal Position Position { get; init; }
-        internal CellValue Value { get; init; }
-        internal bool IsOpen { get; private set; }
+        private const string ClosedCellValue = "X";
 
-        internal Cell(Position position, CellValue cellValue, bool isOpen = false)
+        public CellValue Value { get; init; }
+        public bool IsOpen { get; private set; }
+
+        public Cell(CellValue cellValue, bool isOpen = false)
         {
-            Position = position;
             Value = cellValue;
             IsOpen = isOpen;
         }
 
-        internal void Open()
+        public override string ToString()
+        {
+            return IsOpen ? Value.ToString() : ClosedCellValue;
+        }
+
+        public void Open()
         {
             IsOpen = true;
+        }
+
+        public bool IsHole()
+        {
+            return Value == CellValue.Hole;
         }
     }
 }
