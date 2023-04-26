@@ -27,5 +27,10 @@
         {
             return Value == CellValue.Hole;
         }
+
+        public bool IsEmpty()
+        {
+            return Value == CellValue.Empty;
+        }
     }
 }

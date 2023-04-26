@@ -3,7 +3,7 @@ using Proxx.Core.Enitites;
 
 namespace Proxx.Core.Square
 {
-    public class BoardGenerationStrategy : IBoardGenerationStrategy<Board, BoardConfiguration>
+    public class BoardGenerationStrategy : IBoardGenerationStrategy<Board, Position, BoardConfiguration>
     {
         public IHolesDistributionStrategy HolesDistributionStrategy { get; init; }
 
@@ -29,7 +29,7 @@ namespace Proxx.Core.Square
 
             FillNumberCells(cells);
 
-            return new Board(cells, boardConfiguration.TotalCells);
+            return new Board(cells);
         }
 
         private static void FillNumberCells(Cell[,] cells)
@@ -38,7 +38,7 @@ namespace Proxx.Core.Square
             {
                 for (int col = 0; col < cells.GetLength(1); col++)
                 {
-                    if (cells[row, col].Value == CellValue.Empty)
+                    if (cells[row, col].IsEmpty())
                     {
                         var surroindingHolesCount = CountSurroundingHoles(cells, row, col);
                         if (surroindingHolesCount != 0)

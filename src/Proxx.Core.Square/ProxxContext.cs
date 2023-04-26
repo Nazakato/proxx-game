@@ -3,7 +3,7 @@ using Proxx.Core.Configuration;
 
 namespace Proxx.Core.Square
 {
-    public class ProxxContext : ProxxContext<Board, BoardConfiguration>
+    public class ProxxContext : ProxxContext<Board, Position, BoardConfiguration>
     {
         public ProxxContext(int fieldHeight, int fieldWidth, int holes,
             IHolesDistributionStrategy holesDistributionStrategy = null)
